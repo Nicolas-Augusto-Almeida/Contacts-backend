@@ -1,0 +1,1 @@
+INSERT INTO TBL_CONTACTS ( name, email, phone, address, birthday, company, Title, category) VALUES ('Leonardo', 'leonardo@exemplo.com', '12345-6789', '123 Main St', '1990/01/01', 'Fatec Itu', 'vagabundo', 'AMIGO');
