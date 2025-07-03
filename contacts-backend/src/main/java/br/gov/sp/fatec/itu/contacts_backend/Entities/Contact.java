@@ -25,8 +25,8 @@ public class Contact implements Serializable {
     private String address;
     private String birthday;
     private String company;
-    private String Title;
-    private boolean isFavorite;
+    private String title;
+    private boolean favorite;
 
     @Enumerated(EnumType.STRING)
     private Category category;
@@ -87,28 +87,28 @@ public class Contact implements Serializable {
         this.company = company;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+    }
+
     public Category getCategory() {
         return category;
     }
 
     public void setCategory(Category category) {
         this.category = category;
-    }
-
-    public String getTitle() {
-        return Title;
-    }
-
-    public void setTitle(String title) {
-        Title = title;
-    }
-
-    public boolean isFavorite() {
-        return isFavorite;
-    }
-
-    public void setFavorite(boolean isFavorite) {
-        this.isFavorite = isFavorite;
     }
 
     @Override
@@ -155,18 +155,18 @@ public class Contact implements Serializable {
                 return false;
         } else if (!company.equals(other.company))
             return false;
-        if (Title == null) {
-            if (other.Title != null)
+        if (title == null) {
+            if (other.title != null)
                 return false;
-        } else if (!Title.equals(other.Title))
+        } else if (!title.equals(other.title))
             return false;
-        if (isFavorite != other.isFavorite)
+        if (favorite != other.favorite)
             return false;
         if (category != other.category)
             return false;
         return true;
     }
+
     
-   
     
 }
