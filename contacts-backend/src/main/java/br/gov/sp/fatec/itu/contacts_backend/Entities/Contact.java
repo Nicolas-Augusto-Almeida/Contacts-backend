@@ -26,6 +26,7 @@ public class Contact implements Serializable {
     private String birthday;
     private String company;
     private String Title;
+    private boolean isFavorite;
 
     @Enumerated(EnumType.STRING)
     private Category category;
@@ -86,20 +87,28 @@ public class Contact implements Serializable {
         this.company = company;
     }
 
-    public String getJobTitle() {
-        return Title;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.Title = jobTitle;
-    }
-
     public Category getCategory() {
         return category;
     }
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 
     @Override
@@ -151,11 +160,13 @@ public class Contact implements Serializable {
                 return false;
         } else if (!Title.equals(other.Title))
             return false;
+        if (isFavorite != other.isFavorite)
+            return false;
         if (category != other.category)
             return false;
         return true;
     }
-
+    
    
     
 }
