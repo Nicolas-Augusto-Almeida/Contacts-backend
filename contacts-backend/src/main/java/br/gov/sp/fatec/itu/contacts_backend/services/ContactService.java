@@ -34,7 +34,7 @@ public class ContactService {
         aux.setTitle(contact.getTitle());
         aux.setCompany(contact.getCompany());
         aux.setCategory(contact.getCategory());
-
+        aux.setFavorite(contact.isFavorite());
 
         repository.save(aux);
     }

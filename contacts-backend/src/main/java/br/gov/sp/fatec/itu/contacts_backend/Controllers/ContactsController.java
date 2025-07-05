@@ -19,28 +19,28 @@ import br.gov.sp.fatec.itu.contacts_backend.services.ContactService;
 @RestController
 @RequestMapping("contacts")
 public class ContactsController {
-    
+
     @Autowired
     private ContactService service;
 
     @GetMapping
-    public ResponseEntity<List<Contact>> getAll(){
+    public ResponseEntity<List<Contact>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
 
     @PostMapping
-    public ResponseEntity<Contact> save(@RequestBody Contact contact){
+    public ResponseEntity<Contact> save(@RequestBody Contact contact) {
         return ResponseEntity.created(null).body(service.save(contact));
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Void> update(@RequestBody Contact contact, long id){
+    public ResponseEntity<Void> update(@RequestBody Contact contact, @PathVariable Long id) {
         service.update(contact, id);
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable long id){
+    public ResponseEntity<Void> delete(@PathVariable long id) {
         service.delete(id);
 
         return ResponseEntity.noContent().build();
