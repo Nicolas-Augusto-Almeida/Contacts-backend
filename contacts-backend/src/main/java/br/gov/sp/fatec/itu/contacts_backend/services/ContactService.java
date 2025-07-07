@@ -19,6 +19,11 @@ public class ContactService {
         return repository.findAll();
     }
 
+    public Contact getById(long id){
+        return repository.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("contato não cadastrado"));
+    }
+    
     public Contact save(Contact contact){
         return repository.save(contact);
     }

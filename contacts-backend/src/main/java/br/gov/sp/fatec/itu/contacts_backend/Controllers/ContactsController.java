@@ -30,6 +30,11 @@ public class ContactsController {
         return ResponseEntity.ok(service.getAll());
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<Contact> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(service.getById(id));
+    }
+
     @PostMapping
     public ResponseEntity<Contact> save(@RequestBody Contact contact) {
         return ResponseEntity.created(null).body(service.save(contact));
